@@ -323,7 +323,8 @@
 
                 <div id="formContainer"
                     class="bg-white dark:bg-white/5 rounded-3xl shadow-2xl overflow-hidden border border-primary/10">
-                    <form id="consultationForm" class="p-8 md:p-12 space-y-12">
+                    <form id="consultationForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST"
+                        class="p-8 md:p-12 space-y-12">
                         <!-- 1. Principal Contact Information -->
                         <div class="space-y-6">
                             <h3 class="flex items-center gap-3 text-xl font-bold text-primary">
@@ -334,19 +335,19 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="space-y-2 text-sm">
                                     <label class="font-bold opacity-70">Full Name</label>
-                                    <input type="text" required
+                                    <input type="text" name="full_name" required
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all p-3"
                                         placeholder="Enter your full name">
                                 </div>
                                 <div class="space-y-2 text-sm">
                                     <label class="font-bold opacity-70">Email Address</label>
-                                    <input type="email" required
+                                    <input type="email" name="email" required
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all p-3"
                                         placeholder="email@example.com">
                                 </div>
                                 <div class="space-y-2 text-sm md:col-span-2">
                                     <label class="font-bold opacity-70">Phone Number</label>
-                                    <input type="tel" required
+                                    <input type="tel" name="phone" required
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all p-3"
                                         placeholder="(555) 000-0000">
                                 </div>
@@ -365,7 +366,7 @@
                             <div class="space-y-6">
                                 <div class="space-y-2 text-sm">
                                     <label class="font-bold opacity-70">Property Location (City & State)</label>
-                                    <input type="text" required
+                                    <input type="text" name="property_location" required
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary transition-all p-3"
                                         placeholder="e.g. Miami, FL">
                                 </div>
@@ -374,19 +375,19 @@
                                         short‑term rental?</p>
                                     <div class="space-y-2">
                                         <label class="flex items-center gap-3 cursor-pointer group">
-                                            <input type="radio" name="rental_status"
+                                            <input type="radio" name="rental_status" value="Yes - Actively Hosting"
                                                 class="w-5 h-5 text-primary focus:ring-primary border-gray-300">
                                             <span class="text-sm group-hover:text-primary transition-colors">Yes –
                                                 Actively Hosting</span>
                                         </label>
                                         <label class="flex items-center gap-3 cursor-pointer group">
-                                            <input type="radio" name="rental_status"
+                                            <input type="radio" name="rental_status" value="Launching Within 60 Days"
                                                 class="w-5 h-5 text-primary focus:ring-primary border-gray-300">
                                             <span class="text-sm group-hover:text-primary transition-colors">Launching
                                                 Within 60 Days</span>
                                         </label>
                                         <label class="flex items-center gap-3 cursor-pointer group">
-                                            <input type="radio" name="rental_status"
+                                            <input type="radio" name="rental_status" value="Planning / Exploring"
                                                 class="w-5 h-5 text-primary focus:ring-primary border-gray-300">
                                             <span class="text-sm group-hover:text-primary transition-colors">Planning /
                                                 Exploring</span>
@@ -396,7 +397,7 @@
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
                                     <div class="space-y-3">
                                         <p class="text-sm font-bold opacity-70">Property Type</p>
-                                        <select
+                                        <select name="property_type"
                                             class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary p-3 text-sm">
                                             <option>Condominium</option>
                                             <option>Single‑Family Residence</option>
@@ -409,13 +410,13 @@
                                         <p class="text-sm font-bold opacity-70">Number of Units Seeking Support</p>
                                         <div class="flex flex-wrap gap-3">
                                             <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                    name="units" class="text-primary"> 1</label>
+                                                    name="units" value="1" class="text-primary"> 1</label>
                                             <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                    name="units" class="text-primary"> 2–3</label>
+                                                    name="units" value="2-3" class="text-primary"> 2–3</label>
                                             <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                    name="units" class="text-primary"> 4–5</label>
+                                                    name="units" value="4-5" class="text-primary"> 4–5</label>
                                             <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                    name="units" class="text-primary"> 6+</label>
+                                                    name="units" value="6+" class="text-primary"> 6+</label>
                                         </div>
                                     </div>
                                 </div>
@@ -436,21 +437,25 @@
                                     <p class="text-sm font-bold opacity-70">Approximate Monthly Revenue</p>
                                     <div class="space-y-2">
                                         <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                name="revenue" class="text-primary"> Under $3,000</label>
+                                                name="revenue" value="Under $3,000" class="text-primary"> Under
+                                            $3,000</label>
                                         <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                name="revenue" class="text-primary"> $3,000–$7,000</label>
+                                                name="revenue" value="$3,000-$7,000" class="text-primary">
+                                            $3,000–$7,000</label>
                                         <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                name="revenue" class="text-primary"> $7,000–$15,000</label>
+                                                name="revenue" value="$7,000-$15,000" class="text-primary">
+                                            $7,000–$15,000</label>
                                         <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                name="revenue" class="text-primary"> $15,000+</label>
+                                                name="revenue" value="$15,000+" class="text-primary"> $15,000+</label>
                                         <label class="flex items-center gap-2 text-sm"><input type="radio"
-                                                name="revenue" class="text-primary"> Not Currently Active</label>
+                                                name="revenue" value="Not Currently Active" class="text-primary"> Not
+                                            Currently Active</label>
                                     </div>
                                 </div>
                                 <div class="space-y-3">
                                     <p class="text-sm font-bold opacity-70">Current Average Occupancy Rate (if known)
                                     </p>
-                                    <input type="text"
+                                    <input type="text" name="occupancy_rate"
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary p-3 text-sm"
                                         placeholder="e.g. 75%">
                                 </div>
@@ -470,22 +475,26 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 <label
                                     class="flex items-center gap-3 p-3 rounded-xl border border-primary/5 hover:border-primary/30 transition-colors cursor-pointer group">
-                                    <input type="checkbox" class="rounded text-primary focus:ring-primary shrink-0">
+                                    <input type="checkbox" name="challenge_low_booking"
+                                        class="rounded text-primary focus:ring-primary shrink-0">
                                     <span class="text-sm">Low booking volume</span>
                                 </label>
                                 <label
                                     class="flex items-center gap-3 p-3 rounded-xl border border-primary/5 hover:border-primary/30 transition-colors cursor-pointer group">
-                                    <input type="checkbox" class="rounded text-primary focus:ring-primary shrink-0">
+                                    <input type="checkbox" name="challenge_inconsistent_occupancy"
+                                        class="rounded text-primary focus:ring-primary shrink-0">
                                     <span class="text-sm">Inconsistent occupancy</span>
                                 </label>
                                 <label
                                     class="flex items-center gap-3 p-3 rounded-xl border border-primary/5 hover:border-primary/30 transition-colors cursor-pointer group">
-                                    <input type="checkbox" class="rounded text-primary focus:ring-primary shrink-0">
+                                    <input type="checkbox" name="challenge_pricing_strategy"
+                                        class="rounded text-primary focus:ring-primary shrink-0">
                                     <span class="text-sm">Pricing strategy uncertainty</span>
                                 </label>
                                 <label
                                     class="flex items-center gap-3 p-3 rounded-xl border border-primary/5 hover:border-primary/30 transition-colors cursor-pointer group">
-                                    <input type="checkbox" class="rounded text-primary focus:ring-primary shrink-0">
+                                    <input type="checkbox" name="challenge_guest_comm"
+                                        class="rounded text-primary focus:ring-primary shrink-0">
                                     <span class="text-sm">Guest communication management</span>
                                 </label>
                                 <label
@@ -509,7 +518,7 @@
                                     <span class="text-sm">Lack of structured systems</span>
                                 </label>
                                 <div class="md:col-span-2">
-                                    <input type="text"
+                                    <input type="text" name="challenge_other"
                                         class="w-full rounded-xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary p-3 text-sm mt-3"
                                         placeholder="Other (please specify)">
                                 </div>
@@ -530,22 +539,26 @@
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <label
                                         class="flex items-center gap-3 p-4 rounded-xl bg-background-light dark:bg-white/5 border border-primary/10 cursor-pointer hover:border-primary transition-all">
-                                        <input type="radio" name="service_type" class="text-primary">
+                                        <input type="radio" name="service_type" value="Ongoing Operational Coordination"
+                                            class="text-primary">
                                         <span class="text-sm">Ongoing Operational Coordination</span>
                                     </label>
                                     <label
                                         class="flex items-center gap-3 p-4 rounded-xl bg-background-light dark:bg-white/5 border border-primary/10 cursor-pointer hover:border-primary transition-all">
-                                        <input type="radio" name="service_type" class="text-primary">
+                                        <input type="radio" name="service_type" value="Launch & Readiness Support"
+                                            class="text-primary">
                                         <span class="text-sm">Launch & Readiness Support</span>
                                     </label>
                                     <label
                                         class="flex items-center gap-3 p-4 rounded-xl bg-background-light dark:bg-white/5 border border-primary/10 cursor-pointer hover:border-primary transition-all">
-                                        <input type="radio" name="service_type" class="text-primary">
+                                        <input type="radio" name="service_type" value="Revenue Optimization Strategy"
+                                            class="text-primary">
                                         <span class="text-sm">Revenue Optimization Strategy</span>
                                     </label>
                                     <label
                                         class="flex items-center gap-3 p-4 rounded-xl bg-background-light dark:bg-white/5 border border-primary/10 cursor-pointer hover:border-primary transition-all">
-                                        <input type="radio" name="service_type" class="text-primary">
+                                        <input type="radio" name="service_type"
+                                            value="Not Sure - Need Professional Guidance" class="text-primary">
                                         <span class="text-sm">Not Sure – Need Professional Guidance</span>
                                     </label>
                                 </div>
@@ -564,13 +577,17 @@
                             <p class="text-sm font-bold opacity-70">When are you looking to begin services?</p>
                             <div class="flex flex-wrap gap-6">
                                 <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="radio"
-                                        name="timeline" class="text-primary focus:ring-primary"> Immediately</label>
+                                        name="timeline" value="Immediately" class="text-primary focus:ring-primary">
+                                    Immediately</label>
                                 <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="radio"
-                                        name="timeline" class="text-primary focus:ring-primary"> Within 30 Days</label>
+                                        name="timeline" value="Within 30 Days" class="text-primary focus:ring-primary">
+                                    Within 30 Days</label>
                                 <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="radio"
-                                        name="timeline" class="text-primary focus:ring-primary"> 1–3 Months</label>
+                                        name="timeline" value="1-3 Months" class="text-primary focus:ring-primary"> 1–3
+                                    Months</label>
                                 <label class="flex items-center gap-2 text-sm cursor-pointer"><input type="radio"
-                                        name="timeline" class="text-primary focus:ring-primary"> Researching /
+                                        name="timeline" value="Researching / Planning"
+                                        class="text-primary focus:ring-primary"> Researching /
                                     Planning</label>
                             </div>
                         </div>
@@ -588,7 +605,7 @@
                                 <label class="text-sm font-bold opacity-70 leading-relaxed">Please briefly describe your
                                     goals for your short‑term rental property and what you would like to
                                     improve:</label>
-                                <textarea rows="4" required
+                                <textarea name="goals" rows="4" required
                                     class="w-full rounded-2xl border-gray-200 dark:border-white/10 dark:bg-white/5 focus:ring-primary focus:border-primary p-4 text-sm"
                                     placeholder="Your property goals and vision..."></textarea>
                             </div>
@@ -687,23 +704,50 @@
         document.getElementById('consultationForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // In a real application, you would send form data to a server here
-
-            // Show success message with animation
-            const form = document.getElementById('consultationForm');
+            const form = e.target;
+            const data = new FormData(form);
             const success = document.getElementById('successMessage');
 
-            form.style.opacity = '0';
-            form.style.transition = 'all 0.5s ease';
+            // Set sending state
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
 
-            setTimeout(() => {
-                form.classList.add('hidden');
-                success.classList.remove('hidden');
-                success.classList.add('animate-in', 'fade-in', 'duration-700');
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Success animation
+                    form.style.opacity = '0';
+                    form.style.transition = 'all 0.5s ease';
 
-                // Scroll to message
-                document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 500);
+                    setTimeout(() => {
+                        form.classList.add('hidden');
+                        success.classList.remove('hidden');
+                        success.classList.add('animate-in', 'fade-in', 'duration-700');
+                        document.getElementById('formContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("Oops! There was a problem submitting your form");
+                        }
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    })
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem connecting to the server");
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
         });
     </script>
 </body>
